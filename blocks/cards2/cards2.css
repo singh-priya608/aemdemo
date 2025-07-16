@@ -1,0 +1,211 @@
+/* Main container background and padding */
+.cards2-container {
+  background-color: #f5f3ea;
+  padding: 4rem 2rem;
+  font-family: Georgia, serif;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 8%);
+}
+
+/* Wrapper inside the container */
+.cards2-wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Make section <h3> headings look like the carousel <h1> */
+.cards2-container .default-content-wrapper h3 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #2e3d2f;
+  margin: 0 auto 40px;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+/* Add a gradient underline similar to above */
+.cards2-container .default-content-wrapper h3::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 16px auto 0;
+  background: #9ca88f;
+  border-radius: 2px;
+}
+
+/* Flex layout for the three cards per section */
+.cards2.loss.block > div,
+.cards2.gain.block > div,
+.cards2.balance.block > div,
+.cards2.muscle.block > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: nowrap;
+}
+
+/* Individual card (Breakfast, Lunch, etc.) */
+.cards2.loss.block > div > div,
+.cards2.gain.block > div > div,
+.cards2.balance.block > div > div,
+.cards2.muscle.block > div > div {
+  background: linear-gradient(135deg, #a4b49b, #c89676);
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 28px rgb(0 0 0 / 8%);
+  padding: 2rem 1.75rem;
+  flex: 1 1 calc(33.333% - 1rem);
+  display: flex;
+  flex-direction: column;
+  min-width: 260px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #fff;
+  backdrop-filter: blur(4px);
+}
+
+.cards2.loss.block > div > div:hover,
+.cards2.gain.block > div > div:hover,
+.cards2.balance.block > div > div:hover,
+.cards2.muscle.block > div > div:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgb(0 0 0 / 12%);
+}
+
+/* Meal heading (e.g. Breakfast) */
+.cards2.loss.block h3,
+.cards2.gain.block h3,
+.cards2.balance.block h3,
+.cards2.muscle.block h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+/* Meal time (e.g. 7:00 AM) */
+.cards2.loss.block p,
+.cards2.gain.block p,
+.cards2.balance.block p,
+.cards2.muscle.block p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #e7efe1;
+  margin: 0 0 1.25rem;
+  opacity: 0.9;
+}
+
+/* List styling */
+.cards2.loss.block ul,
+.cards2.gain.block ul,
+.cards2.balance.block ul,
+.cards2.muscle.block ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+/* List items */
+.cards2.loss.block li,
+.cards2.gain.block li,
+.cards2.balance.block li,
+.cards2.muscle.block li {
+  color: #fdfdfd;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 0.65rem;
+  position: relative;
+}
+
+.cards2.loss.block li::marker,
+.cards2.gain.block li::marker,
+.cards2.balance.block li::marker,
+.cards2.muscle.block li::marker {
+  color: #e3e3e3;
+}
+
+/* ===================== Responsive Enhancements ===================== */
+@media (width <= 768px) {
+  .cards2.loss.block > div,
+  .cards2.gain.block > div,
+  .cards2.balance.block > div,
+  .cards2.muscle.block > div {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .cards2.loss.block > div > div,
+  .cards2.gain.block > div > div,
+  .cards2.balance.block > div > div,
+  .cards2.muscle.block > div > div {
+    flex: 1 1 100%;
+    min-width: auto;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .cards2-container .default-content-wrapper h3 {
+    font-size: 1.6rem;
+  }
+
+  .cards2.loss.block h3,
+  .cards2.gain.block h3,
+  .cards2.balance.block h3,
+  .cards2.muscle.block h3 {
+    font-size: 1.4rem;
+  }
+
+  .cards2.loss.block p,
+  .cards2.gain.block p,
+  .cards2.balance.block p,
+  .cards2.muscle.block p {
+    font-size: 0.95rem;
+  }
+
+  .cards2.loss.block li,
+  .cards2.gain.block li,
+  .cards2.balance.block li,
+  .cards2.muscle.block li {
+    font-size: 0.95rem;
+  }
+}
+
+@media (width <= 480px) {
+  .cards2-container {
+    padding: 3rem 1rem;
+  }
+
+  .cards2-container .default-content-wrapper h3 {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+  }
+
+  .cards2.loss.block > div > div,
+  .cards2.gain.block > div > div,
+  .cards2.balance.block > div > div,
+  .cards2.muscle.block > div > div {
+    padding: 1.25rem 1rem;
+  }
+
+  .cards2.loss.block h3,
+  .cards2.gain.block h3,
+  .cards2.balance.block h3,
+  .cards2.muscle.block h3 {
+    font-size: 1.25rem;
+  }
+
+  .cards2.loss.block p,
+  .cards2.gain.block p,
+  .cards2.balance.block p,
+  .cards2.muscle.block p {
+    font-size: 0.9rem;
+  }
+
+  .cards2.loss.block li,
+  .cards2.gain.block li,
+  .cards2.balance.block li,
+  .cards2.muscle.block li {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
