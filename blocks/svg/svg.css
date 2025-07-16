@@ -1,0 +1,250 @@
+.human-body-div {
+  position: relative;
+  width: 90vw;
+  max-width: 400px;
+  height: 600px;
+  margin: 0 auto;
+}
+
+/* === COMMON PART === */
+.body-part {
+  position: absolute;
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+}
+
+.shoulders .circle {
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary-green);
+  opacity: 0.8;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+}
+
+.chests .rect {
+  width: 100px;
+  height: 80px;
+  background-color: var(--primary-green);
+  opacity: 0.8;
+  border-radius: 10px;
+}
+
+.armss .rect {
+  width: 30px;
+  height: 100px;
+  background-color: var(--primary-coral);
+  opacity: 0.8;
+  border-radius: 15px;
+  position: absolute;
+  top: 0;
+}
+
+.cores .rect {
+  width: 80px;
+  height: 120px;
+  background-color: var(--secondary-lavender);
+  opacity: 0.8;
+  border-radius: 10px;
+}
+
+.backs .rect {
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+  opacity: 0.8;
+  border-radius: 10px;
+}
+
+.legss .rect {
+  width: 40px;
+  height: 140px;
+  background-color: var(--primary-green);
+  opacity: 0.8;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+}
+
+.body-part:hover .rect,
+.body-part:hover .circle {
+  box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+  transform: scale(1.02);
+  transition: all 0.2s ease;
+}
+
+/* === SHOULDERS === */
+.shoulders {
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+
+
+.shoulders .circle.left {
+  left: calc(50% - 90px);
+}
+
+.shoulders .circle.right {
+  left: calc(50% + 40px);
+}
+
+.shoulders .label {
+  position: absolute;
+  top: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+}
+
+/* === CHEST === */
+.chests {
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+.chests .label {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+}
+
+/* === ARMS === */
+.armss {
+  top: 95px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+
+
+.armss .rect.left {
+  left: calc(50% - 90px);
+}
+
+.armss .rect.right {
+  left: calc(50% + 60px);
+}
+
+.armss .label {
+  top: 40px;
+  font-size: 14px;
+}
+
+/* === CORE === */
+.cores {
+  top: 190px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+.cores .label {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+}
+
+/* === BACK === */
+.backs {
+  top: 330px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+.backs .label {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+}
+
+/* === LEGS === */
+.legss {
+  top: 450px;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+.legss .rect.left {
+  left: calc(50% - 45px);
+}
+
+.legss .rect.right {
+  left: calc(50% + 5px);
+}
+
+.legss .label {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+}
+
+/* === RESPONSIVENESS === */
+@media (width <= 480px) {
+  .human-body-div {
+    max-width: 320px;
+  }
+
+  .shoulders .circle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .chests .rect {
+    width: 80px;
+    height: 70px;
+  }
+
+  .cores .rect {
+    width: 70px;
+    height: 110px;
+  }
+
+  .backs .rect {
+    width: 80px;
+    height: 90px;
+  }
+
+  .legss .rect {
+    width: 30px;
+    height: 120px;
+  }
+
+  .armss .rect {
+    width: 25px;
+    height: 90px;
+  }
+
+  .shoulders .label,
+  .chests .label,
+  .armss .label,
+  .cores .label,
+  .backs .label,
+  .legss .label {
+    font-size: 12px;
+  }
+}
