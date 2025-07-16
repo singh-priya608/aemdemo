@@ -1,0 +1,45 @@
+.section.herodemo1-container {
+  font-family: Georgia, serif;
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #a8c66c, #c97b63);
+  color: #fff;
+}
+
+.section.herodemo1-container h1 {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+  font-family: Georgia, serif;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 30px;
+
+  /* word-break: break-word; */
+  white-space: normal;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section.herodemo1-container p {
+  font-size: 22px;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  color: #fff;
+}
+
+/* Responsive adjustments */
+@media (width <= 600px) {
+  .section.herodemo1-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .section.herodemo1-container p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+}
