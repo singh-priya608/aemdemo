@@ -11,24 +11,56 @@
  */
 
 :root {
-  /* colors */
+  /* Primary colors */
+  --primary-green: #c0f5ab;
+  --primary-coral: #ff7f7f;
+  --secondary-lavender: #c4b5fd; /* overwritten from #b2a4d4 */
+  
+  /* Secondary Colors */
+  --secondary-blue: #7d8b9a;
+  --secondary-sand: #f5deb3;
+  --secondary-rose: #e8c5c5;
+  
+  /* Neutral Colors */
+  --neutral-cream: #f5f2e8;
+  --neutral-light: #faf9f6;
+  --neutral-medium: #e8e5d8;
+  --neutral-dark: #6b705c;
+  --neutral-gray: #f8f9fa;
+
+  /* Background & Text */
   --background-color: white;
   --light-color: #f8f8f8;
   --dark-color: #505050;
   --text-color: #131313;
+
+  /* Links */
   --link-color: #3b63fb;
   --link-hover-color: #1d3ecf;
 
-  /* fonts */
+  /* Header/Footer */
+  --header-footer-bg: var(--primary-navy);
+  --header-footer-text: white;
+
+  /* Shadows and Effects */
+  --shadow-soft: 0 4px 6px rgb(47 62 70 / 10%);
+  --shadow-medium: 0 8px 25px rgb(47 62 70 / 15%);
+  --shadow-strong: 0 20px 40px rgb(47 62 70 / 20%);
+
+  /* Transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Fonts */
   --body-font-family: roboto, roboto-fallback, sans-serif;
   --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
 
-  /* body sizes */
+  /* Body font sizes */
   --body-font-size-m: 22px;
   --body-font-size-s: 19px;
   --body-font-size-xs: 17px;
 
-  /* heading sizes */
+  /* Heading font sizes */
   --heading-font-size-xxl: 55px;
   --heading-font-size-xl: 44px;
   --heading-font-size-l: 34px;
@@ -36,11 +68,11 @@
   --heading-font-size-s: 24px;
   --heading-font-size-xs: 22px;
 
-  /* nav height */
+  /* Nav height */
   --nav-height: 64px;
 }
 
-/* fallback fonts */
+/* Fallback fonts */
 @font-face {
   font-family: roboto-condensed-fallback;
   size-adjust: 88.82%;
@@ -53,14 +85,12 @@
   src: local('Arial');
 }
 
+/* Responsive font sizes */
 @media (width >= 900px) {
   :root {
-    /* body sizes */
     --body-font-size-m: 18px;
     --body-font-size-s: 16px;
     --body-font-size-xs: 14px;
-
-    /* heading sizes */
     --heading-font-size-xxl: 45px;
     --heading-font-size-xl: 36px;
     --heading-font-size-l: 28px;
@@ -70,8 +100,9 @@
   }
 }
 
+/* Base body styles */
 body {
-  display: none;
+  display: none; /* Initially hidden for loading effect */
   margin: 0;
   background-color: var(--background-color);
   color: var(--text-color);
@@ -88,6 +119,7 @@ header {
   height: var(--nav-height);
 }
 
+/* Visibility control */
 header .header,
 footer .footer {
   visibility: hidden;
@@ -98,12 +130,8 @@ footer .footer[data-block-status="loaded"] {
   visibility: visible;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
@@ -119,18 +147,14 @@ h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
 h6 { font-size: var(--heading-font-size-xs); }
 
-p,
-dl,
-ol,
-ul,
-pre,
-blockquote {
+/* Text elements spacing */
+p, dl, ol, ul, pre, blockquote {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
 }
 
-code,
-pre {
+/* Code blocks */
+code, pre {
   font-size: var(--body-font-size-s);
 }
 
@@ -142,18 +166,17 @@ pre {
   white-space: pre;
 }
 
+/* Main content spacing */
 main > div {
   margin: 40px 16px;
 }
 
-input,
-textarea,
-select,
-button {
+/* Form elements inherit fonts */
+input, textarea, select, button {
   font: inherit;
 }
 
-/* links */
+/* Links */
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
@@ -165,7 +188,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* buttons */
+/* Buttons */
 a.button:any-link,
 button {
   box-sizing: border-box;
@@ -200,7 +223,7 @@ button:focus {
 button:disabled,
 button:disabled:hover {
   background-color: var(--light-color);
-  cursor: unset;
+  cursor: default;
 }
 
 a.button.secondary,
@@ -210,12 +233,14 @@ button.secondary {
   color: var(--text-color);
 }
 
+/* Images */
 main img {
   max-width: 100%;
   width: auto;
   height: auto;
 }
 
+/* Icon size */
 .icon {
   display: inline-block;
   height: 24px;
@@ -227,14 +252,15 @@ main img {
   width: 100%;
 }
 
-/* sections */
+/* Sections */
 main > .section {
   margin: 40px 0;
 }
 
 main > .section > div {
   max-width: 1200px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0 24px;
 }
 
@@ -248,7 +274,90 @@ main > .section:first-of-type {
   }
 }
 
-/* section metadata */
+/* Mobile phones */
+@media (width <= 480px) {
+  body {
+    font-size: 14px; /* smaller font */
+  }
+  
+  main > .section > div {
+    padding: 0 16px; /* less padding */
+  }
+
+  header nav {
+    padding: 0 12px;
+  }
+
+  /* Form + result container stack vertically on small screens */
+  .section.form-container.result-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .form-wrapper,
+  .result-wrapper {
+    max-width: 100% !important; /* take full width */
+    flex-basis: 100% !important;
+  }
+
+  /* Human body diagram scale down */
+  .human-body-div {
+    width: 95vw;
+    height: auto;
+    max-width: 300px;
+  }
+
+  /* Adjust human body parts positions if needed */
+  .shoulders .circle.left {
+    left: 40px;
+  }
+
+  .shoulders .circle.right {
+    right: 40px;
+  }
+
+  .armss .rect.left {
+    left: 15px;
+  }
+
+  .armss .rect.right {
+    right: 15px;
+  }
+
+  .legss .rect.left {
+    left: 40px;
+  }
+
+  .legss .rect.right {
+    right: 40px;
+  }
+  
+  /* Hero padding smaller */
+  .hero {
+    padding: 20px 12px;
+    min-height: 250px;
+  }
+
+  /* Hero h1 font smaller */
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  /* herodemo1-container font size smaller */
+  .section.herodemo1-container h1 {
+    font-size: 36px;
+  }
+
+  .section.herodemo1-container p {
+    font-size: 16px;
+    max-width: 100%;
+    margin: 0 auto 20px;
+  }
+}
+
+
+/* Section metadata */
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
