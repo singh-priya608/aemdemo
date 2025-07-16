@@ -1,20 +1,188 @@
-footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+.footer-wrapper {
+  background-color: #1f323a;
+  color: #dbe7e4;
+  padding: 60px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-footer .footer > div {
-  margin: auto;
+.footer.block > div {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.3fr;
+  column-gap: 60px;
   max-width: 1200px;
-  padding: 40px 24px 24px;
+  margin: 0 auto;
 }
 
-footer .footer p {
+.footer .section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer .section ul {
+  list-style: none;
+  padding: 0;
   margin: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 0;
+  width: 40%;
+  flex-wrap: wrap;
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+.footer .default-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Headings */
+.footer h3,
+.footer h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #a3d183;
+  margin-bottom: 10px;
+}
+
+/* Paragraphs */
+.footer p {
+  margin: 0;
+  color: #dbe7e4;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Links */
+.footer a {
+  color: #dbe7e4;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Email Row (Icon + Email) */
+.footer #newsletter p:last-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  line-height: 1.4;
+  margin-top: 5px;
+}
+
+/* Gmail icon alignment */
+.footer #newsletter p:last-child img,
+.footer #newsletter p:last-child svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -1px;
+}
+
+/* Footer bottom line */
+.footer-wrapper::after {
+  content: "";
+  display: block;
+  border-top: 1px solid #2d4a52;
+  margin-top: 40px;
+}
+
+/* ===================== Responsive ===================== */
+
+/* Large desktops */
+@media (width >= 1200px) {
+  .footer.block > div {
+    grid-template-columns: 1.3fr 1fr 1fr 1.3fr;
+    column-gap: 60px;
+  }
+}
+
+/* Tablets and medium screens */
+@media (width <= 1199px) and (width >= 768px) {
+  .footer.block > div {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 720px;
+  }
+
+  .footer .section ul {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+/* Small tablets and large phones */
+@media (width <= 767px) and (width >= 480px) {
+  .footer.block > div {
+    grid-template-columns: 1fr;
+    max-width: 460px;
+    gap: 20px;
+  }
+
+  .footer .section ul {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .footer h3 {
+    font-size: 18px;
+  }
+
+  .footer p {
+    font-size: 15px;
+  }
+}
+
+/* Mobile phones */
+@media (width <= 479px) {
+  .footer-wrapper {
+    padding: 40px 15px;
+    text-align: center; /* Center all text */
+  }
+
+  .footer.block > div {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    gap: 20px;
+    justify-items: center; /* Center grid content */
+  }
+
+  .footer h3 {
+    font-size: 17px;
+  }
+
+  .footer h4 {
+    font-size: 14px;
+  }
+
+  .footer p,
+  .footer #newsletter p:last-child {
+    font-size: 14px;
+    justify-content: center; /* Align email row center */
+  }
+
+  /* Center social icons in a row */
+  .footer .section ul {
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  /* Center each section in the grid */
+  .footer .section {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer #newsletter p:last-child {
+    justify-content: center;
   }
 }
