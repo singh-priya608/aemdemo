@@ -1,0 +1,77 @@
+/* Scoped styling: only affects herodemo section */
+.section.herodemo-container {
+  font-family: Georgia, serif;
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #a8c66c, #c97b63);
+  color: #fff;
+}
+
+.section.herodemo-container h1 {
+  font-size: 64px;               /* Large text */
+  font-weight: 700;              /* Bold and clean */
+  line-height: 1.3;              /* Proper spacing between lines */
+  letter-spacing: -0.5px;        /* Slight tightening of letters */
+  font-family: Georgia, serif; /* Elegant serif font like in image */
+  text-align: center;            /* Centered */
+  color: white;                  /* White text */
+  margin-bottom: 30px;
+
+    /* word-break: break-word;       */
+  white-space: normal;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* .section.herodemo-container h1 {
+  font-size: 64px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+} */
+
+.section.herodemo-container p {
+  font-size: 22px;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  color: #fff;
+} 
+
+/* Flex container to hold buttons side by side */
+.section.herodemo-container .button-container {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.section.herodemo-container .button-container a,
+.section.herodemo-container .button-container button {
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 40px;
+  padding: 15px 35px;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+
+/* First button gradient background */
+.section.herodemo-container .button-container:first-child a,
+.section.herodemo-container .button-container:first-child button {
+  background: linear-gradient(to right, #7ac98d, #d36e6e);
+  border: none;
+  color: white;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 10%);
+}
+
+/* Hover styles */
+.section.herodemo-container .button-container a:hover,
+.section.herodemo-container .button-container button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgb(0 0 0 / 20%);
+}
