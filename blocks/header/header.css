@@ -1,6 +1,8 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: #1e2f37;
+  color: #d0e1e1;
+  font-family: 'Segoe UI', sans-serif;
   width: 100%;
   z-index: 2;
   position: fixed;
@@ -30,21 +32,6 @@ header nav[aria-expanded='true'] {
   min-height: 100dvh;
 }
 
-@media (width >= 900px) {
-  header nav {
-    display: flex;
-    justify-content: space-between;
-    gap: 0 32px;
-    max-width: 1264px;
-    padding: 0 32px;
-  }
-
-  header nav[aria-expanded='true'] {
-    min-height: 0;
-    overflow: visible;
-  }
-}
-
 header nav p {
   margin: 0;
   line-height: 1;
@@ -52,9 +39,28 @@ header nav p {
 
 header nav a:any-link {
   color: currentcolor;
+  text-decoration: none;
 }
 
-/* hamburger */
+header nav a:hover,
+header nav a:active {
+  background-color: #a8c66c; /* fixed invalid var() */
+  border: 2px solid var(--primary-green, #a8c66c); /* added fallback */
+  border-color: #a8c66c;     /* fixed invalid var() */
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  font-size: 0.9rem;
+  
+
+  /* removed invalid label:none; */
+}
+
+/* HAMBURGER BUTTON STYLING - updated */
 header nav .nav-hamburger {
   grid-area: hamburger;
   height: 22px;
@@ -63,16 +69,23 @@ header nav .nav-hamburger {
 }
 
 header nav .nav-hamburger button {
-  height: 22px;
-  margin: 0;
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-  background-color: var(--background-color);
-  color: inherit;
-  overflow: initial;
-  text-overflow: initial;
-  white-space: initial;
+  height: 40px;
+  width: 40px;
+  background-color: #2a424b;
+  border: 2px solid #a3d183;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  color: #a3d183;
+}
+
+header nav .nav-hamburger button:hover {
+  background-color: #354e57;
+  transform: scale(1.05);
+  box-shadow: 0 0 8px rgb(163 209 131 / 30%);
 }
 
 header nav .nav-hamburger-icon,
@@ -82,13 +95,13 @@ header nav .nav-hamburger-icon::after {
   display: block;
   position: relative;
   width: 20px;
+  background-color: #a3d183;
 }
 
 header nav .nav-hamburger-icon::before,
 header nav .nav-hamburger-icon::after {
   content: '';
   position: absolute;
-  background: currentcolor;
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon,
@@ -96,7 +109,7 @@ header nav[aria-expanded='false'] .nav-hamburger-icon::before,
 header nav[aria-expanded='false'] .nav-hamburger-icon::after {
   height: 2px;
   border-radius: 2px;
-  background: currentcolor;
+  background: #a3d183;
 }
 
 header nav[aria-expanded='false'] .nav-hamburger-icon::before {
@@ -120,6 +133,7 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   width: 24px;
   height: 2px;
   border-radius: 2px;
+  background-color: #a3d183;
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon::after {
@@ -147,6 +161,7 @@ header .nav-brand {
 header nav .nav-brand img {
   width: 128px;
   height: auto;
+  transition: all 0.3s ease; /* optional smooth scaling */
 }
 
 /* sections */
@@ -218,6 +233,12 @@ header nav .nav-sections ul > li > ul > li {
     transform: rotate(315deg);
   }
 
+  header nav .nav-sections .default-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   header nav .nav-sections ul {
     display: flex;
     gap: 24px;
@@ -227,6 +248,11 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
     position: relative;
+    color: white;
+    font-weight: bold;
+    font-family: 'Segoe UI', sans-serif;
+    cursor: pointer;
+    transition: color 0.3s ease;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
@@ -241,7 +267,7 @@ header nav .nav-sections ul > li > ul > li {
     width: 200px;
     top: 150%;
     padding: 16px;
-    background-color: var(--light-color);
+    background-color: var(--light-color, #fff); /* fallback */
     white-space: initial;
   }
 
@@ -254,7 +280,7 @@ header nav .nav-sections ul > li > ul > li {
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--light-color);
+    border-bottom: 8px solid var(--light-color, #fff); /* fallback */
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
@@ -265,4 +291,176 @@ header nav .nav-sections ul > li > ul > li {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+}
+
+/* Responsive improvements */
+@media (width <= 768px) {
+  header nav {
+    padding: 0 16px;
+  }
+
+  header .nav-brand img {
+    width: 100px;
+  }
+
+  header nav .nav-sections ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  header nav .nav-tools {
+    margin-top: 1rem;
+  }
+}
+
+@media (width >= 900px) {
+  header nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 0 32px;
+    max-width: 1264px;
+    padding: 0 32px;
+  }
+
+  header nav > div:nth-of-type(2) {
+    flex: 0 0 35%;
+  }
+
+  header nav > div:nth-of-type(3) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  header nav[aria-expanded='true'] {
+    min-height: 0;
+    overflow: visible;
+  }
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(232 225 210 / 70%);
+  backdrop-filter: none;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 40px 50px 50px;
+  max-width: 450px;
+  width: 100%;
+  border-radius: 15px;
+  position: relative;
+  max-height: 80vh;
+  overflow-y: hidden;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 10%);
+  font-family: Georgia, serif;
+  color: #2a2a2a;
+}
+
+.modal-content p {
+  text-align: center;
+  color: #6d6d6d;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 400;
+  font-family: Arial, sans-serif;
+}
+
+.modal-content label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="email"],
+.modal-content input[type="password"],
+.modal-content select {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 1.5rem;
+  border: 1.5px solid #c57c71;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content input[type="email"]:focus,
+.modal-content input[type="password"]:focus,
+.modal-content select:focus {
+  border-color: #8e4f43;
+  outline: none;
+  box-shadow: 0 0 5px rgb(142 79 67 / 50%);
+}
+
+.modal-content .password-note {
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: -1.25rem;
+  margin-bottom: 1.5rem;
+  font-family: Arial, sans-serif;
+}
+
+.modal-content .checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #4b6043;
+  font-weight: 600;
+  margin-top: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.modal-content .checkbox-label a {
+  color: #728758;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.modal-content .checkbox-label a:hover {
+  text-decoration: underline;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #8e4f43;
+  transition: color 0.2s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: #5a362b;
+  background: transparent;
+}
+
+@media (width <= 480px) {
+  .modal-content {
+    padding: 25px 20px 30px;
+    width: 90%;
+  }
 }
